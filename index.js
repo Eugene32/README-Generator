@@ -61,12 +61,24 @@ inquirer
         //     err ? console.log(err) : console.log('Success!')
         // );
 
-        const file = `${data.title.toLowerCase().split(' ').join('')} README.md`;
-         fs.writeFile(file, JSON.stringify(data, null, '\t'), (err) =>
-             err ? console.log(err) : console.log('Success!')
-         );
+        const fileContent =
+            `Project Title:  ${data.title}
 
+        Description:  ${data.description}
+
+                        Table of Contents
         
+        
+        `;
+
+
+        const file = `${data.title.toLowerCase().split(' ').join('')} README.md`;
+        //fs.writeFile(file, JSON.stringify(data, null, '\t'), (err) =>
+        fs.writeFile(file, fileContent, (err) =>
+            err ? console.log(err) : console.log('Success!')
+        );
+
+
     });
 
 
