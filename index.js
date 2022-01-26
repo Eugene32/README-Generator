@@ -20,22 +20,22 @@ inquirer
         },
         {
             type: 'input',
-            name: 'install-Instruct',
+            name: 'installInstruct',
             message: 'Installation instructions:  ',
         },
         {
             type: 'input',
-            name: 'usage-info',
+            name: 'usageInfo',
             message: 'Usage information:  ',
         },
         {
             type: 'input',
-            name: 'contribution-guide',
+            name: 'contributionGuide',
             message: 'Contribution guidelines:  ',
         },
         {
             type: 'input',
-            name: 'test-Instruct',
+            name: 'testInstruct',
             message: 'Test instructions:  ',
         },
         {
@@ -46,12 +46,12 @@ inquirer
         },
         {
             type: 'input',
-            name: 'user-name',
+            name: 'userName',
             message: 'Github username:  ',
         },
         {
             type: 'input',
-            name: 'email-add',
+            name: 'emailAdd',
             message: 'Email address:  ',
         },
     ])
@@ -62,17 +62,21 @@ inquirer
         // );
 
         const fileContent =
-            `Project Title:  ${data.title}
-
-        Description:  ${data.description}
-
-                        Table of Contents
-        
-        
+            `#${data.title.toUpperCase()}\n
+Description:  ${data.description}\n\n
+\t\t\t\tTABLE OF CONTENTS:\n
+Installation:    ${data.installInstruct}\n
+Usage:  ${data.usageInfo}\n
+Contributing:  ${data.contributionGuide}\n
+Tests:  ${data.testInstruct}\n
+License:  ${data.license}\n
+Questions:\n
+\tGithub:  [${data.userName}](https://github.com/${data.userName})\n
+\tEmail:   [${data.emailAdd}](mailto:${data.emailAdd})
         `;
 
 
-        const file = `${data.title.toLowerCase().split(' ').join('')} README.md`;
+        const file = `${data.title.toUpperCase().split(' ').join('')}_README.md`;
         //fs.writeFile(file, JSON.stringify(data, null, '\t'), (err) =>
         fs.writeFile(file, fileContent, (err) =>
             err ? console.log(err) : console.log('Success!')
