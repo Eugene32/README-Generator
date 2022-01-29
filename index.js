@@ -2,6 +2,7 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 //const questions = [];
@@ -39,10 +40,10 @@ inquirer
             message: 'Test instructions:  ',
         },
         {
-            type: 'checkbox',
+            type: 'list',
             message: 'License type?',
             name: 'license',
-            choices: ['Apache License 2.0', 'GNU General Public Licens v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Publice License 2.0', 'GNU Affero General Publice License v3.0', 'GNU Affero General Publice License v2.0', 'GNU Affero General Publice License v2.1', 'Mozilla Public Llicese 2.0', 'The Unlicense'],
+            choices: ['The MIT License', 'The Unlicense', 'WTFPL'],
         },
         {
             type: 'input',
@@ -56,41 +57,55 @@ inquirer
         },
     ])
     .then((data) => {
-        //const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-        // fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-        //     err ? console.log(err) : console.log('Success!')
-        // );
+        const badge = generateMarkdown.renderLicenseBadge(data.license);
+        //console.log(badge);
+        const licenseLink = generateMarkdown.renderLicenseLink(data.license);
+        //console.log(licenseLink);
+        const licenseSec = generateMarkdown.renderLicenseSection(data.license);
+        //console.log(licenseSec);
 
         const fileContent =
-            `#${data.title.toUpperCase()}\n
-Description:  ${data.description}\n\n
+            `#${data.title.toUpperCase()}  ${badge}\n
+Description:  ${data.description} \n\n
+............................
 \t\t\t\tTABLE OF CONTENTS:\n
+.............................
 Installation:    ${data.installInstruct}\n
 Usage:  ${data.usageInfo}\n
 Contributing:  ${data.contributionGuide}\n
 Tests:  ${data.testInstruct}\n
-License:  ${data.license}\n
-Questions:\n
+License:  ${data.license}
+\t${licenseSec}
+\t${licenseLink}\n
+Questions:
 \tGithub:  [${data.userName}](https://github.com/${data.userName})\n
 \tEmail:   [${data.emailAdd}](mailto:${data.emailAdd})
         `;
-
-
-        const file = `${data.title.toUpperCase().split(' ').join('')}_README.md`;
-        //fs.writeFile(file, JSON.stringify(data, null, '\t'), (err) =>
-        fs.writeFile(file, fileContent, (err) =>
-            err ? console.log(err) : console.log('Success!')
-        );
-
+        writeToFile(data.title, fileContent);
+        console.log(fileContent);
 
     });
 
 
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) {
+    const file = `${fileName.toUpperCase().split(' ').join('')}_README.md`;
+    //fs.writeFile(file, JSON.stringify(data, null, '\t'), (err) =>
+    fs.writeFile(file, data, (err) =>
+        err ? console.log(err) : console.log('Success!')
+    );
+}
 
 // TODO: Create a function to initialize app
-function init() { }
+// function init(fileContent) {
+//     console.log(fileContent);
 
+// }
 // Function call to initialize app
-init();
+// init();
+
+
+
+
+
