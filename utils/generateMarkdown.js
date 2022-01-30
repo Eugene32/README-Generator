@@ -11,15 +11,15 @@ function renderLicenseBadge(license) {
 
   switch (license) {
     case 'The MIT License':
-      licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+      licenseBadge = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
 
       break;
 
     case 'The Unlicense':
-      licenseBadge = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
+      licenseBadge = '![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)';
       break;
     case 'WTFPL':
-      licenseBadge = '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)';
+      licenseBadge = '![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)';
       break;
 
     default:
@@ -39,15 +39,15 @@ function renderLicenseLink(license) {
 
   switch (license) {
     case 'The MIT License':
-      licenseLink = '[MIT](https://opensource.org/licenses/MIT)';
+      licenseLink = '[MIT License link](https://opensource.org/licenses/MIT)';
 
       break;
 
     case 'The Unlicense':
-      licenseLink = '[Unlicense](http://unlicense.org/)';
+      licenseLink = '[Unlicense License link](http://unlicense.org/)';
       break;
     case 'WTFPL':
-      licenseLink = '[WTFPL](http://www.wtfpl.net/about/)';
+      licenseLink = '[WTFPL License link](http://www.wtfpl.net/about/)';
       break;
 
     default:
@@ -66,9 +66,7 @@ function renderLicenseSection(license) {
 
   switch (license) {
     case 'The MIT License':
-      licenseDetails = 
-      
-      `Permission is hereby granted, free of charge, to any person obtaining a 
+      licenseDetails =    `Permission is hereby granted, free of charge, to any person obtaining a 
       copy of this software and associated documentation files (the "Software"), 
       to deal in the Software without restriction, including without limitation 
       the rights to use, copy, modify, merge, publish, distribute, sublicense, 

@@ -66,9 +66,11 @@ inquirer
 
         const fileContent =
             
-`# ${data.title.toUpperCase()}\n
-${badge}\n
-Description:  ${data.description} \n\n
+`${badge}\n
+# ${data.title.toUpperCase()}\n
+
+### Description:  
+${data.description} \n\n
 
 ## TABLE OF CONTENTS:\n
 * [Installation](#installation)
@@ -79,18 +81,22 @@ Description:  ${data.description} \n\n
 * [Questions](#questions)
 
 \n
-### Installation:    ${data.installInstruct}\n
-### Usage:  ${data.usageInfo}\n
-### Contributing:  ${data.contributionGuide}\n
-### Tests:  ${data.testInstruct}\n
-### License:  \t${data.license}\n
+### Installation:    
+${data.installInstruct}\n
+### Usage:  
+${data.usageInfo}\n
+### Contributing:  
+${data.contributionGuide}\n
+### Tests:  
+${data.testInstruct}\n
+### License:  
+${data.license}\n
 \t${licenseSec}\n
-\t${licenseLink}\n
+${licenseLink}\n
 ### Questions: \n
-\tGithub:  
-[${data.userName}](https://github.com/${data.userName})\n
-\tEmail:   
-[${data.emailAdd}](mailto:${data.emailAdd})
+Github:  [${data.userName}](https://github.com/${data.userName})\n
+Email:   [${data.emailAdd}](mailto:${data.emailAdd})
+
         `;
         writeToFile(data.title, fileContent);
         console.log(fileContent);
