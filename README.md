@@ -11,7 +11,7 @@ This is a README.md generator aimed to create the file by using node js under te
 
 ### How to execute and use:
 * Type "node index.js" on the console/terminal/command.
-* Answer the corresponding answers to the questions.
+* Provide the corresponding answers to the questions.
   * You will be prompted to for the title, description, installation instruction, purpose/usage, instruction on how to contribute, testing portion, to choose a license via list, and how you can be reached as the developer.
 
 ### Limitations:
