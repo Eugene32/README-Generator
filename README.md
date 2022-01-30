@@ -20,7 +20,8 @@ This is a README.md generator aimed to create the file by using node js under te
       * https://api.github.com/licenses - getting the list of licenses
       * https://api.github.com/licenses/LICENSE - get the 
 
-[Demo_Video](https://watch.screencastify.com/v/fUaK3ashtT14gRsIyJ6L)
+### Demo:  
+* [Demo video link](https://watch.screencastify.com/v/fUaK3ashtT14gRsIyJ6L)
 
 
 
