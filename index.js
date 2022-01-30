@@ -65,21 +65,32 @@ inquirer
         //console.log(licenseSec);
 
         const fileContent =
-            `#${data.title.toUpperCase()}  ${badge}\n
+            
+`# ${data.title.toUpperCase()}\n
+${badge}\n
 Description:  ${data.description} \n\n
-............................
-\t\t\t\tTABLE OF CONTENTS:\n
-.............................
-Installation:    ${data.installInstruct}\n
-Usage:  ${data.usageInfo}\n
-Contributing:  ${data.contributionGuide}\n
-Tests:  ${data.testInstruct}\n
-License:  ${data.license}
-\t${licenseSec}
+
+## TABLE OF CONTENTS:\n
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+
+\n
+### Installation:    ${data.installInstruct}\n
+### Usage:  ${data.usageInfo}\n
+### Contributing:  ${data.contributionGuide}\n
+### Tests:  ${data.testInstruct}\n
+### License:  \t${data.license}\n
+\t${licenseSec}\n
 \t${licenseLink}\n
-Questions:
-\tGithub:  [${data.userName}](https://github.com/${data.userName})\n
-\tEmail:   [${data.emailAdd}](mailto:${data.emailAdd})
+### Questions: \n
+\tGithub:  
+[${data.userName}](https://github.com/${data.userName})\n
+\tEmail:   
+[${data.emailAdd}](mailto:${data.emailAdd})
         `;
         writeToFile(data.title, fileContent);
         console.log(fileContent);
